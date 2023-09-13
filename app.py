@@ -1,6 +1,6 @@
 import requests
 
-API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
+API_URL = "https://api-inference.huggingface.co/models/sshleifer/distilbart-cnn-12-6"
 headers = {"Authorization": "Bearer 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"}
 
 def query(payload):
