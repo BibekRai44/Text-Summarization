@@ -9,22 +9,26 @@
 
 <title>Text Summarization</title>
 <h1>Text Summarizer</h1>
-<p>Text summarization is the creation of a short, accurate, and fluent summary of a longer text document.</p>
+<p>Text summarizer is the creation of a short, accurate, and fluent summary of a longer text document.</p>
 <br>
-<div class="container">
-    <h2>Original Text</h2>
-        <label for="freeform" ></label>
-        <textarea class="form-control" id="freeform" rows="7" cols="20" name="freeform" placeholder="Enter text here..."></textarea>
-</div>
-<br>
-<div class="btn-container">
-    <button class="btn btn-success">Summarize</button>
-</div>
-<br>
-<div class="container">
-    <h2>Summarized Text</h2>
-        <label for="freeform" ></label>
-        <textarea class="form-control" id="freeform" rows="7" cols="20" name="freeform" ></textarea>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Original Text</h2>
+                <label for="freeform">
+                </label>
+                <textarea class="form-control" id="freeform" rows="15" cols="20" name="freeform" placeholder="Enter text here..."></textarea>
+            </div>
+            <div class="col-md-6">
+                <h2>Summarized Text</h2>
+                <label for="freeform"></label>
+                <textarea class="form-control" id="freeform" rows="15" cols="20" name="freeform" ></textarea>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="btn-container">
+            <button class="btn btn-success">Summarize</button>
+    </div>
 </body>
 </html>
