@@ -1,5 +1,7 @@
 h1{
     text-align: center;
+    color: blueviolet 
+    
 }
 p{
     text-align: center;
@@ -16,4 +18,10 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.footer{
+    text-align: center;
+}
+.col-md-6{
+    text-align: center;
 }
