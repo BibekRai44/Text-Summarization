@@ -15,7 +15,7 @@
     <p>Text summarizer is the creation of a short, accurate, and fluent summary of a longer text document.</p>
     <div class="container">
         <div class="row">
-            <div class="col-mid-6">
+            <div class="col-md-6">
                 <h2>Original Text</h2>
                 <form  action="{{url_for('Summarize')}}" method="post">
                     <textarea class="form-control" id="freeform" rows="13" cols="20" name="data" placeholder="Enter text here..."></textarea>
@@ -27,21 +27,21 @@
                         <input type="range" class="m-2 min="20" max="1000" name="maxL">
                     </div>
                     <div class="flex self-center">
-                        <button class="btn btn-primary" type="submit" onclick="Check()">Summarize</button>
                         <button class="btn btn-primary" type="reset">Clear</button>
+                        <button class="btn btn-success" type="submit" onclick="Check()">Summarize</button>
                     </div>
                 </form>
             </div>
-            <div class="col-mid-6">
+            <div class="col-md-6">
                 <h2>Summarized Text</h2>
-                    <textarea class="form-control" id="freeform" rows="13" cols="20" name="result" readonly placeholder="Your Summary">{{result}}</textarea>
+                    <textarea class="form-control" id="freeform" rows="13" cols="20" name="result" readonly >{{result}}</textarea>
                     <br>
                     <button class="btn btn-primary"
                         onclick="myFunction()">Copy text
                     </button>
             </div>
         </div>
-    
+    </div>
     <script>
         function myFunction() {
             
@@ -68,10 +68,12 @@
             }
         }
     </script>
-
+    <br>
+    
     <div class="footer">
         Made by <a href="https://www.linkedin.com/in/bibek-rai-43173b258/" target="_blank">Bibek Rai</a>
     </div>
+    
 </body>
 
 </html>
