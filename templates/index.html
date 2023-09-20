@@ -1,43 +1,77 @@
 <!DOCTYPE html>
-<html>
-<body>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="static/style.css">
+<html lang="en">
 
-<title>Text Summarization</title>
-<h1>Text Summarizer</h1>
-<p>Text summarizer is the creation of a short, accurate, and fluent summary of a longer text document.</p>
-<br>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <title>Text Summarizer</title>
+    <h1>Text Summarizer</h1>
+    <p>Text summarizer is the creation of a short, accurate, and fluent summary of a longer text document.</p>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-mid-6">
                 <h2>Original Text</h2>
-                <label for="freeform">
-                </label>
-                <textarea class="form-control" id="freeform" rows="13" cols="20" name="freeform" name="data" placeholder="Enter text here..."></textarea>
-                <br>
-                <button class="btn btn-primary">Paste Text</button>
+                <form  action="{{url_for('Summarize')}}" method="post">
+                    <textarea class="form-control" id="freeform" rows="13" cols="20" name="data" placeholder="Enter text here..."></textarea>
+                    <div class="m-2 flex self-center">
+                        <h3><font face="sans-serif" color="#000000" size="3">
+                            Summary Length
+                            </font>
+                        </h3>
+                        <input type="range" class="m-2 min="20" max="1000" name="maxL">
+                    </div>
+                    <div class="flex self-center">
+                        <button class="btn btn-primary" type="submit" onclick="Check()">Summarize</button>
+                        <button class="btn btn-primary" type="reset">Clear</button>
+                    </div>
+                </form>
             </div>
-            <div class="col-md-6">
+            <div class="col-mid-6">
                 <h2>Summarized Text</h2>
-                <label for="freeform"></label>
-                <textarea class="form-control" id="freeform" rows="13" cols="20" name="freeform" ></textarea>
-                <br>
-                <button class="btn btn-primary">Copy Text</button>
+                    <textarea class="form-control" id="freeform" rows="13" cols="20" name="result" readonly placeholder="Your Summary">{{result}}</textarea>
+                    <br>
+                    <button class="btn btn-primary"
+                        onclick="myFunction()">Copy text
+                    </button>
             </div>
-            
         </div>
-    </div>
-    <br>
-    <div class="btn-container">
-            <button class="btn btn-success">Summarize</button>
-    </div>
-    <br>
+    
+    <script>
+        function myFunction() {
+            
+            var copyText = document.getElementById("myInput");
+
+            
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            
+
+            navigator.clipboard.writeText(copyText.value);
+            
+        }
+    </script>
+    <script>
+        function Check() {
+
+            var reg = /<(.|\n)*>/g;
+
+            if (reg.test(document.getElementById("data").value) == true) {
+                var ErrorText = 'Make Sure You Provide Valid Data.';
+                alert('Error Text');
+
+            }
+        }
+    </script>
+
     <div class="footer">
         Made by <a href="https://www.linkedin.com/in/bibek-rai-43173b258/" target="_blank">Bibek Rai</a>
     </div>
 </body>
+
 </html>
