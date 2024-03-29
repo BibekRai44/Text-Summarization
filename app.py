@@ -13,7 +13,7 @@ def Index():
 def Summarize():
     if req.method=="POST":
         API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
-        headers = {"Authorization": "Bearer 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"}
+        headers = {"Authorization": "Bearer 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"}
 
 
         data=req.form["data"]
@@ -28,11 +28,12 @@ def Summarize():
         output = query({
             "inputs": data,
             "parameters": {"min_length":minL, "max_length":maxL},
-        })[0]
-
-        return render_template("index.html", result=output["summary_text"])
-    else:
-        return render_template("index.html")
+        })
+        if "summary_text" in output:
+            summary_text = output["summary_text"]
+            return render_template("index.html", result=summary_text)
+        else:
+            return "Failed to summarize the text."
 
 
 if __name__ == '__main__':
