@@ -18,13 +18,13 @@
             <div class="col-md-6">
                 <h2>Original Text</h2>
                 <form  action="{{url_for('Summarize')}}" method="post">
-                    <textarea class="form-control" id="freeform" rows="13" cols="20" name="data" placeholder="Enter text here..."></textarea>
+                    <textarea class="form-control" id="data" rows="13" cols="20" name="data" placeholder="Enter text here..."></textarea>
                     <div class="m-2 flex self-center">
                         <h3><font face="sans-serif" color="#000000" size="3">
                             Summary Length
                             </font>
                         </h3>
-                        <input type="range" class="m-2 min="20" max="1000" name="maxL">
+                        <input type="range" class="m-2" min="20" max="1000" name="maxL">
                     </div>
                     <div class="flex self-center">
                         <button class="btn btn-primary" type="reset">Clear</button>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-6">
                 <h2>Summarized Text</h2>
-                    <textarea class="form-control" id="freeform" rows="13" cols="20" name="result" readonly >{{result}}</textarea>
+                    <textarea class="form-control" id="result" rows="13" cols="20" name="result" readonly >{{result}}</textarea>
                     <br>
                     <button class="btn btn-primary"
                         onclick="myFunction()">Copy text
@@ -45,7 +45,7 @@
     <script>
         function myFunction() {
             
-            var copyText = document.getElementById("myInput");
+            var copyText = document.getElementById("result");
 
             
             copyText.select();
